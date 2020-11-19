@@ -63,5 +63,11 @@ const options = {
     width: 320,
     height: 260,
 };
-const { title, ...dimension } = options;
-console.log(title, dimension);
+const { title: n, ...dimension } = options;
+console.log(n, dimension);
+
+// Declare a function with an object as parameter
+function whois ({ firstName, lastName, displayName, gender = 0 }) {
+    console.log(firstName, lastName, displayName, gender);
+}
+whois({ firstName: 'Evelien', displayName: 'everut', gender: 4 });

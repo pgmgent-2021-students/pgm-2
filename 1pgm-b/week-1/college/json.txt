@@ -1,0 +1,28 @@
+// JSON
+
+JavaScript Object Notation
+Verzameling van key / value pairs
+
+{
+    key1: value1,
+    key2: value2
+    ...
+}
+
+// Object literal
+const person = {
+    firstName: 'Philippe',
+    lastName: 'Rutsaert',
+    age: 28,
+    isFemale: false,
+    user: null
+};
+
+// JSON
+{
+    "firstName": "Philippe",
+    "lastName": "Rutsaert",
+    "age": 28,
+    "isFemale": true,
+    "user": null
+}
