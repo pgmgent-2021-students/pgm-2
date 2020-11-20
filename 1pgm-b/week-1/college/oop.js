@@ -76,3 +76,28 @@ tc1.addTag('Rust');
 tc1.addTag('Lisp');
 tc1.addTag('Assembly');
 console.log(tc1.toString());
+
+// Describe a category
+function Category (name, description = null) {
+    this.name = name;
+    this.description = description;
+};
+// Make an instance
+const cat1 = new Category('programming');
+const cat2 = new Category('memes');
+
+// Describe a post
+function Post ({ title, synopsis, body, category = null}) {
+    this.title = title;
+    this.synopsis = synopsis;
+    this.body = body;
+    this.category = category;
+};
+// Make an instance
+const post1 = new Post({
+    title: 'Xbox Series S Review',
+    synopsis: 'Microsoft plaatst een hele slimme zet met de Xbox Series S. Het is een mooie en lekker kleine console die toch met veel moderne technieken overweg kan. Gamen op 4k zit er niet in, dat is de voornaamste concessie die je moet doen. Maar als je geen 4k-tv hebt, is de Series S een prima alternatief voor de duurdere Series X. De Series S is daarmee een ideale instapmachine die vooral door de aantrekkelijke Game Pass veel mensen voor het Microsoft-kamp zal winnen.',
+    body: '...',
+    category: cat2,
+});
+console.log(post1);
