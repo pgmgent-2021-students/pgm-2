@@ -11,11 +11,20 @@ Verzameling van key / value pairs
 
 // Object literal
 const person = {
-    firstName: 'Philippe',
-    lastName: 'Rutsaert',
+    firstName: "Philippe",
+    lastName: "Rutsaert",
     age: 28,
     isFemale: false,
-    user: null
+    user: null,
+    favoWords: [
+        "JavaScript",
+        "HTML",
+        "Python"
+    ],
+    social: {
+        facebook: "http://sdfghj dsudsds",
+        website: "http://www.pgm.gent"
+    }
 };
 
 // JSON
@@ -24,5 +33,14 @@ const person = {
     "lastName": "Rutsaert",
     "age": 28,
     "isFemale": true,
-    "user": null
+    "user": null,
+    "favoWords": [
+        "JavaScript",
+        "HTML",
+        "Python"
+    ],
+    "social": {
+        "facebook": "http://sdfghj dsudsds",
+        "website": "http://www.pgm.gent"
+    }
 }
