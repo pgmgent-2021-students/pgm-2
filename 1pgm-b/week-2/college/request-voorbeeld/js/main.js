@@ -1,5 +1,6 @@
 const apiURL = 'https://data.stad.gent/api/records/1.0/search/?dataset=straten-mondmaskerplicht-gent&q=';
 
+const $straatnamen = document.querySelector('#straatnamen');
 //Stap 1: nieuw XMLHttpRequest object aanmaken
 // Nodig voor request te versturen
 // AJAX
@@ -26,6 +27,7 @@ xhr.onreadystatechange = () => {
         //data: zit in xhr.response
         const data = !xhr.responseType ? JSON.parse(xhr.response) : xhr.response;
         console.log(data);
+        $straatnamen.innerHTML = data.records.map((record) => record.fields.straatnaam).join('<br>');
       }
   }
 };
