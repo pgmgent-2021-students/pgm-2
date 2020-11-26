@@ -1,0 +1,16 @@
+.joke {
+    display: block;
+    box-sizing: border-box;;
+    background: rgba(222, 222, 222, 1);
+    padding: 0.5rem 1rem;
+
+    font-size: 2rem;
+}
+
+.joke__content {
+
+}
+
+.joke__categories {
+
+}

@@ -26,7 +26,7 @@ xhr.onreadystatechange = () => {
                 $joke.dataset.id = data.value.id;
                 $joke.innerHTML = `
                 <p class="joke__text">${data.value.joke}</p>
-                <span class="joke__categories">${data.value.categories.join(', ')}</span>
+                <ul class="joke__categories">${data.value.categories.map(c => `<li>${c}</li>`).join('')}</ul>
                 `
             }
             break;
