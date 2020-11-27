@@ -1,16 +1,78 @@
-.joke {
-    display: block;
-    box-sizing: border-box;;
-    background: rgba(222, 222, 222, 1);
-    padding: 1rem;
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900&display=swap');
 
-    font-size: 2rem;
+:root {
+    --color-purple: #7E57C5;
+    --color-purple-dark: #412D66;
+    --color-purple-darkest: #201633;
+    --color-green: #5AB946;
+    --color-orange: #F58732;
+    --color-red: #ED0034;
+    --color-black: #000;
+    --color-white: #fff;
+    --color-gray-lightest: #fcfcfc;
+    --color-gray-light: #dfdfdf;
+    --color-gray: #cfcfcf;
+    --spacer: 16px;
+    --font-family-sourcesanspro: 'Source Sans Pro', sans-serif;
 }
 
-.joke__content {
+html, body {
     margin: 0;
+    padding: 0;
 }
 
-.joke__categories {
+body {
+    width: 100vw;
+    height: 100vh;
 
+    font-family: var(--font-family-sourcesanspro);
+    font-size: 16px;
+
+    font-weight: 400;
+    line-height: 1.42;
+
+    color: var(--color-black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-sourcesanspro);
+
+    font-weight: 900;
+    line-height: 1.42;
+}
+
+.insult {
+    position: relative;
+
+    display: inline-block;
+    box-sizing: border-box;;
+    background: var(--color-gray-light);
+    border: 1px solid var(--color-gray);
+    border-radius: 1rem;
+
+    padding: 1rem;
+    font-size: 2rem;
+    width: 75vmin;
+}
+
+.insult:after {
+    position: absolute;
+    right: -1em;
+    top: -1em;
+
+    content: attr(data-id);
+    background: var(--color-red);
+    color: var(--color-gray-lightest);
+
+    border-radius: 0.5em;
+    padding: 0.5em;
+    font-size: 1rem;
+}
+
+.insult__content {
+    margin: 0;
 }

@@ -1,5 +1,5 @@
-// https://evilinsult.com/generate_insult.php?lang=en&type=json
-const EVIL_INSULT_API_ENDPOINT = 'http://api.icndb.com/jokes/randomx?firstName=John&lastName=Doe';
+const PROXY_SERVER = 'https://api.codetabs.com/v1/proxy/?quest=';
+const EVIL_INSULT_API_ENDPOINT = 'https://evilinsult.com/generate_insult.php?lang=en&type=json';
 
 // 1. Cache elements
 const $insult = document.querySelector('.insult');
@@ -19,23 +19,27 @@ function getJSON (url, successHandler, errorHandler) {
             errorHandler && errorHandler('Network Error!');
         }
     };
+    xhr.onerror = (error) => {
+      errorHandler && errorHandler(error);
+    };
     xhr.send(null);
 }
 
 // Call the getJSON function
-getJSON(EVIL_INSULT_API_ENDPOINT, 
-    function (data) {
+getJSON(`${PROXY_SERVER}${EVIL_INSULT_API_ENDPOINT}`, 
+    (data) => {
+      console.log(data);
         // Transform data to a string (HTML)
         const myStr = `
-        <p class="insult__content">${data.value.joke}</p>
-        ${data.value.categories.length > 0 ? `<ul>${data.value.categories.map((c) => `<li>${c}</li>`).join('')}</ul>` : ''}
+          <p class="insult__content">${data.insult}</p>
         `;
-        // Inject string into the DOM element via $joke
+        // Inject string into the DOM element via $insult
         $insult.innerHTML = myStr;
-        // Add data attribute id to the DOM element via $joke
-        $insult.dataset.id = data.value.id;
+        // Add data attribute id to the DOM element via $insult
+        $insult.dataset.id = parseInt(data.number);
+        $insult.dataset.lang = data.language;
     },
-    function (error) {
+    (error) => {
         console.log(error);
     }
 );
