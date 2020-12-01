@@ -14,7 +14,10 @@ const GHENT_BLUE_BIKES_DAMPOORT = 'https://data.stad.gent/api/records/1.0/search
             // Call the function getJSON()
             getJSON(GHENT_BLUE_BIKES_DAMPOORT,
                 (data) => {
-                    let tempStr = `<li>${data.records[0].fields.capacitytotal}</li>`;
+                    let tempStr = `
+                        <li>${data.records[0].fields.capacitytotal} / ${data.records[0].fields.capacityavailable}
+                        <span>${data.records[0].fields.test}</span>
+                        </li>`;
                     this.$blueBikesList.innerHTML = tempStr;
                 },
                 (error) => {
