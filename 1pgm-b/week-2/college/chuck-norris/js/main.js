@@ -8,13 +8,15 @@ const $joke = document.querySelector('.joke');
 // Loads data from a certain url
 function getJSON (url) {
     const xhr = new XMLHttpRequest();
-    responseType = 'json';
+    xhr.responseType = 'json';
     xhr.open('GET', url, true);
     xhr.onload = () => {
         if (xhr.status === 200) {
             // Received data
+            console.log(xhr.response)
             const data = (!xhr.responseType) ? JSON.parse(xhr.response) : xhr.response;
             // Transform data to a string (HTML)
+            console.log(data)
             const myStr = `
                 <p class="joke__content">${data.value.joke}</p>
                 ${data.value.categories.length > 0 ? `<ul>${data.value.categories.map((c) => `<li>${c}</li>`).join('')}</ul>` : ''}
