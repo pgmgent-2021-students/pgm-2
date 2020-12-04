@@ -11,7 +11,12 @@ const COUNTRIES_API = 'https://restcountries.eu/rest/v2/all';
         },
         getDataFromCountriesAPIEndpoint() {
             fetch(COUNTRIES_API, {})
-                .then(response => response.json())
+                .then(response => {
+                    if (response.status === 200) {
+                        return response.json();
+                    }
+                    throw new Error('Something went wrong!');
+                })
                 .then(json => this.updateCountriesUI(json))
                 .catch(error => console.log(error));
         },
