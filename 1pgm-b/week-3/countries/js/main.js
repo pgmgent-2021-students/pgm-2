@@ -18,7 +18,7 @@ const COUNTRIES_API = 'https://restcountries.eu/rest/v2/all';
                     throw new Error('Something went wrong!');
                 })
                 .then(json => this.updateCountriesUI(json))
-                .catch(error => console.log(error));
+                .catch(error => console.warn(error));
         },
         updateCountriesUI(data) {
             this.$countriesList.innerHTML = data.map((country) => {
