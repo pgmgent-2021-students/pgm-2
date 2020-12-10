@@ -2,6 +2,8 @@
 const express = require('express');
 // Initalize the express server
 const app = express();
+// Custom modules
+const apiRoutes = require('./routes');
 // Settings
 const PORT = 8080;
 const HOSTNAME = '127.0.0.1';
@@ -15,6 +17,20 @@ app.get('/', (req, res) => {
 app.get('/hello', (req, res) => {
   res.send('Greatings Earthlings :).');
 });
+
+app.get('/persons', (req, res) => {
+  res.status(200).json([
+    {
+      firstName: 'Philippe'
+    },
+    {
+      firstName: 'Evelien'
+    }
+  ]);
+});
+
+// Import the API routes
+app.use('/api', apiRoutes);
 
 // Run the server
 app.listen(PORT, HOSTNAME, (err) => {
