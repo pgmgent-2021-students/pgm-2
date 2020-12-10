@@ -1,0 +1,20 @@
+{
+  "name": "pgm_express_server",
+  "version": "0.0.0",
+  "description": "Mega Cool PGM Server",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node app.js"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "api",
+    "nunjucks"
+  ],
+  "author": "drdynscript",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

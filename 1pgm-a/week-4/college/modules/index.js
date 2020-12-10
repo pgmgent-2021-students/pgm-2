@@ -38,3 +38,9 @@ tempStr = persons.map(p => `${p.firstName}  ${p.lastName}`).join('\n');
 fs.writeFile('./users.txt', tempStr, (error) => {
   console.log(`The file has been saved!`);
 });
+
+tempStr = 'FirstName,LastName\n';
+tempStr += persons.map(p => `${p.firstName},${p.lastName}`).join('\n');
+fs.writeFile('./users.csv', tempStr, (error) => {
+  console.log(`The file has been saved!`);
+});
