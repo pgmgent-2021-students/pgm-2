@@ -1,4 +1,5 @@
-const apiURL = 'https://data.stad.gent/api/records/1.0/search/?dataset=straten-mondmaskerplicht-gent&q=';
+const apikey ='' //plak hier je api key
+const apiURL = 'https://data.stad.gent/api/records/1.0/search/?dataset=straten-mondmaskerplicht-gent&apikey='+apikey;
 
 const $straatnamen = document.querySelector('#straatnamen');
 //Stap 1: nieuw XMLHttpRequest object aanmaken
