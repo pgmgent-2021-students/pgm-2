@@ -29,6 +29,13 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/about', (req, res) => {
+  res.render('about', {
+
+  });
+});
+
+
 app.get('/hello', (req, res) => {
   res.send('Greatings Earthlings :).');
 });
