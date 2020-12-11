@@ -4,7 +4,7 @@
   "description": "Mega Cool PGM Server",
   "main": "app.js",
   "scripts": {
-    "dev": "node app.js"
+    "dev": "nodemon --watch app.js --watch public/*.* --watch routes/*.*"
   },
   "keywords": [
     "node.js",
@@ -16,5 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }

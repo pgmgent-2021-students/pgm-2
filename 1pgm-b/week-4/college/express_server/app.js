@@ -1,5 +1,7 @@
 // Import the express.js module
 const express = require('express');
+// Import built-in module path
+const path = require('path');
 // Initalize the express server
 const app = express();
 // Custom modules
@@ -31,6 +33,9 @@ app.get('/persons', (req, res) => {
 
 // Import the API routes
 app.use('/api', apiRoutes);
+
+// Serving static files
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // Run the server
 app.listen(PORT, HOSTNAME, (err) => {
