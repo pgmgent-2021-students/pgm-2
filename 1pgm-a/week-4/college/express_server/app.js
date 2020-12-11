@@ -4,6 +4,8 @@ const path = require('path')
 // Make an instance of the express class
 const app = express();
 
+const apiRoutes = require('./routes')
+
 // Settings of the server
 const PORT = 8080;
 const HOSTNAME = '127.0.0.1';
@@ -34,6 +36,8 @@ app.get('/persons',(req,res) => {
 
 //server static files
 app.use('/static',express.static(path.join(__dirname,'public')))
+
+app.use('/api',apiRoutes)
 
 // Listen to incoming requests
 app.listen(PORT, HOSTNAME, (err) => {
