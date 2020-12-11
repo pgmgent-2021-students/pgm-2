@@ -2,6 +2,8 @@
 const express = require('express');
 // Import built-in module path
 const path = require('path');
+// Import the nunjucks template egine
+const nunjucks = require('nunjucks');
 // Initalize the express server
 const app = express();
 // Custom modules
@@ -10,10 +12,21 @@ const apiRoutes = require('./routes');
 const PORT = 8080;
 const HOSTNAME = '127.0.0.1';
 
+// Connect nunjucks to the express server
+nunjucks.configure(path.join(__dirname, 'views'), {
+  autoescape: true,
+  express: app,
+  noCache: true,
+  watch: true,
+});
+app.set('view engine', 'html');
+
 // Make End-points
 // => Known as Routes
 app.get('/', (req, res) => {
-  res.send('WELCOME TO ASSOCIATE DEGREE IN COMPUTER PROGRAMMING.');
+  res.render('index', {
+
+  });
 });
 
 app.get('/hello', (req, res) => {
