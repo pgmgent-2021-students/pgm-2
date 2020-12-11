@@ -35,6 +35,31 @@ router.get('/users', (req, res) => {
   });
 });
 
+// Get a specific user by userId
+router.get('/users/:userId', (req, res) => {
+  const userId = req.params.userId;
+
+  const filePath = path.join(__dirname, '..', 'public', 'data', 'users.json');
+
+  fs.readFile(filePath, (err, data) => {
+    if (err) {
+      res.status(501).json({
+        message: 'Something went wrong',
+        error: err.toString()
+      });
+    }
+
+    const user = JSON.parse(data).results.find(u => u.login.uuid === userId);
+    if (user) {
+      res.status(200).json(user);
+    } else {
+      res.status(404).json({
+        message: `User with id ${userId} not found!`
+      });
+    }
+  });
+});
+
 // Get all posts
 router.get('/posts', (req, res) => {
   const filePath = path.join(__dirname, '..', 'public', 'data', 'posts.json');
@@ -50,7 +75,7 @@ router.get('/posts', (req, res) => {
   });
 });
 
-// Get all posts
+// Get a specific post by postId
 router.get('/posts/:postId', (req, res) => {
   const postId = req.params.postId;
 
@@ -72,7 +97,6 @@ router.get('/posts/:postId', (req, res) => {
         message: `Post with id ${postId} not found!`
       });
     }
-    
   });
 });
 
