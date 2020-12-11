@@ -16,6 +16,12 @@ app.get('/about', (req, res) => {
   res.send('ABOUT TARZAN!');
 });
 
+app.get('/portfolio', (req, res) => {
+  res.send('ROPES OF TARZANS!');
+});
+
+
+
 // Listen to incoming requests
 app.listen(PORT, HOSTNAME, (err) => {
   if (err) {
