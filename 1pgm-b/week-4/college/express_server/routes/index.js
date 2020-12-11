@@ -35,5 +35,46 @@ router.get('/users', (req, res) => {
   });
 });
 
+// Get all posts
+router.get('/posts', (req, res) => {
+  const filePath = path.join(__dirname, '..', 'public', 'data', 'posts.json');
+
+  fs.readFile(filePath, (err, data) => {
+    if (err) {
+      res.status(501).json({
+        message: 'Something went wrong',
+        error: err.toString()
+      });
+    }
+    res.status(200).json(JSON.parse(data));
+  });
+});
+
+// Get all posts
+router.get('/posts/:postId', (req, res) => {
+  const postId = req.params.postId;
+
+  const filePath = path.join(__dirname, '..', 'public', 'data', 'posts.json');
+
+  fs.readFile(filePath, (err, data) => {
+    if (err) {
+      res.status(501).json({
+        message: 'Something went wrong',
+        error: err.toString()
+      });
+    }
+
+    const post = JSON.parse(data).find(p => p.id === postId);
+    if (post) {
+      res.status(200).json(post);
+    } else {
+      res.status(404).json({
+        message: `Post with id ${postId} not found!`
+      });
+    }
+    
+  });
+});
+
 // Export module
 module.exports = router;
