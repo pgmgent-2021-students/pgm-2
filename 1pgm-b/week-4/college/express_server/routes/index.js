@@ -25,6 +25,12 @@ router.get('/users', (req, res) => {
   const filePath = path.join(__dirname, '..', 'public', 'data', 'users.json');
 
   fs.readFile(filePath, (err, data) => {
+    if (err) {
+      res.status(501).json({
+        message: 'Something went wrong',
+        error: err.toString()
+      });
+    }
     res.status(200).json(JSON.parse(data).results);
   });
 });
