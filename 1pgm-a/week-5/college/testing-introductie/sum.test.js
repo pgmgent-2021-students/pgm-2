@@ -1,4 +1,3 @@
-const { expect } = require("@jest/globals");
 const sum = require("./sum");
 
 // 1. Wat test ik en 2. wat moet het doen?
