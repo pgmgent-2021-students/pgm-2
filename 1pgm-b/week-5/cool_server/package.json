@@ -4,7 +4,8 @@
   "description": "Mega cool webserver programmed in Node.js, Express.js",
   "main": "src/app.js",
   "scripts": {
-    "dev": "nodemon --watch src/app.js --watch src/*"
+    "dev": "nodemon --watch src/app.js --watch src/*",
+    "lint": "eslint . --ext .js --fix"
   },
   "keywords": [
     "pgm",
@@ -21,6 +22,11 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
     "nodemon": "^2.0.6"
   }
 }

@@ -24,5 +24,6 @@ app.use('/api', apiRoutes);
 Listen to incoming requests
 */
 app.listen(PORT, HOSTNAME, (err) => {
+  if (err) throw err;
   console.log(`Server is listening on http://${HOSTNAME}:${PORT}!`);
 });
