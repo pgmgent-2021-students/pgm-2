@@ -2,6 +2,7 @@
 Import modules
 */
 const express = require('express');
+const apiRouter = require('./routes');
 
 /*
 Setting
@@ -13,6 +14,11 @@ const PORT = 8080;
 Initialize the express application
 */
 const app = express();
+
+/*
+Routes
+*/
+app.use('/api', apiRouter);
 
 /*
 Listen to incoming requests
