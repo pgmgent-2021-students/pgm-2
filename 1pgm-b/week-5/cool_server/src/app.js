@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 Define the API-routes
 */
 app.use('/api', apiRoutes);
+
 /*
 Listen to incoming requests
 */
