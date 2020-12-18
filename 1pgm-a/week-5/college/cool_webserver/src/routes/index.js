@@ -1,20 +1,21 @@
 /*
-Import modules
+Import packages
 */
 const express = require('express');
+const postController = require('../controllers/postController');
 
 /*
-Create a router
+Make a router
 */
 const router = express.Router();
 
 /*
 Routes
 */
-router.get('/projects', (req, res) => {
-  res.json({
-    "msg": "hello"
-  });
-});
+router.get('/posts', postController.getPosts);
+router.get('/posts/:postId', postController.getPostById);
+router.post('/posts', postController.createPost);
+router.delete('/posts/:postId', postController.deletePost);
+router.put('/posts/:postId', postController.updatePost);
 
 module.exports = router;

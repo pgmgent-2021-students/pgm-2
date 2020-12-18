@@ -1,28 +1,29 @@
 /*
-Import modules
+Import packages
 */
 const express = require('express');
-const apiRouter = require('./routes');
+const bodyParser = require('body-parser');
+const apiRoutes = require('./routes');
 
 /*
-Setting
+Settings
 */
 const HOSTNAME = '127.0.0.1';
 const PORT = 8080;
 
-/*
-Initialize the express application
-*/
+// Make an instance of an Express object
 const app = express();
+app.use(bodyParser.json());
 
 /*
-Routes
+Define the API-routes
 */
-app.use('/api', apiRouter);
+app.use('/api', apiRoutes);
 
 /*
 Listen to incoming requests
 */
 app.listen(PORT, HOSTNAME, (err) => {
-  console.log(`Server is listening on http://${HOSTNAME}:${PORT}!`)
+  if (err) throw err;
+  console.log(`Server is listening on http://${HOSTNAME}:${PORT}!`);
 });
