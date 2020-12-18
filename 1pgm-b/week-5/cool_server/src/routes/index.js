@@ -79,4 +79,27 @@ router.delete('/posts/:postId', (req, res) => {
   });
 });
 
+router.put('/posts/:postId', (req, res) => {
+  const { postId } = req.params;
+  const post = req.body;
+  post.modifiedAt = Date.now();
+
+  // Read the news.json file
+  const data = fs.readFileSync(filePathNews, { encoding: 'utf8', flag:'r' });
+  const posts = JSON.parse(data);
+  // Find the index of the post we want to remove
+  const findIndex = posts.findIndex(post => post.id === postId);
+  if (findIndex > -1) {
+     posts[findIndex] = {
+       ...posts[findIndex],
+       ...post
+     }
+  }
+
+  // Write posts array to the news.json file
+  fs.writeFileSync(filePathNews, JSON.stringify(posts, null, 2));
+  
+  res.status(200).json(posts[findIndex]);
+});
+
 module.exports = router;
