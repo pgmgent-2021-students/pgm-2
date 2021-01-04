@@ -35,10 +35,6 @@ const getCategoryById = (req, res, next) => {
 };
 
 module.exports = {
-  // createPost,
-  // deletePost,
   getCategoryById,
   getCategories,
-  // getPostById,
-  // updatePost,
 };

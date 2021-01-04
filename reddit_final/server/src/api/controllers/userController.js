@@ -37,9 +37,6 @@ const getUserById = (req, res, next) => {
 };
 
 module.exports = {
-  // createPost,
-  // deletePost,
   getUsers,
   getUserById,
-  // updatePost,
 };

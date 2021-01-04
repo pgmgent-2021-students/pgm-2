@@ -51,10 +51,7 @@ const getCommunitiesFromCategory = (req, res, next) => {
 };
 
 module.exports = {
-  // createPost,
-  // deletePost,
   getCommunities,
   getCommunityById,
   getCommunitiesFromCategory,
-  // updatePost,
 };
