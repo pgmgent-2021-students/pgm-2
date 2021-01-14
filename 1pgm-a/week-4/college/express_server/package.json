@@ -4,8 +4,12 @@
   "description": "A real cool PGM express server setup",
   "main": "app.js",
   "scripts": {
+<<<<<<< HEAD
+    "dev": "nodemon --watch app.js"
+=======
     "start": "node app.js",
     "dev": "nodemon app.js"
+>>>>>>> 4a7c8b49154e3c6bc78bf4c1e6bb7c9806021171
   },
   "keywords": [
     "pgm",

@@ -19,6 +19,13 @@ app.get('/about', (req, res) => {
   res.send('ABOUT TARZAN!');
 });
 
+<<<<<<< HEAD
+app.get('/portfolio', (req, res) => {
+  res.send('ROPES OF TARZANS!');
+});
+
+
+=======
 app.get('/persons',(req,res) => {
   res.status(200).json(
     [
@@ -38,6 +45,7 @@ app.get('/persons',(req,res) => {
 app.use('/static',express.static(path.join(__dirname,'public')))
 
 app.use('/api',apiRoutes)
+>>>>>>> 4a7c8b49154e3c6bc78bf4c1e6bb7c9806021171
 
 // Listen to incoming requests
 app.listen(PORT, HOSTNAME, (err) => {
