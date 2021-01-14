@@ -105,4 +105,4 @@ dist
 
 
 # exlcuderen van bepaalde oefeningen
-**/ghent_parkingsstates/js/*
+# **/ghent_parkingsstates/js/*
